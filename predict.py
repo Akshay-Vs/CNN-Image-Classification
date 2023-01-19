@@ -23,6 +23,8 @@ img = cv.imdecode(img_array, cv.IMREAD_COLOR)
 if img is None:
     print("Error: Failed to load image")
 else:
+    # Convert image to RGB
+    img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     # Resize the image
     img = cv.resize(img, (32, 32))
     prediction = model.predict(np.array([img]) / 255)
